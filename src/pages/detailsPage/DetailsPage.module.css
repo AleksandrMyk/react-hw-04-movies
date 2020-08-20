@@ -1,0 +1,46 @@
+.linkBox {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+
+.linkItems {
+  margin-right: 10px;
+}
+
+.cast,
+.rewiew {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.activeClassName {
+  color: blue;
+}
+.goBack {
+  position: fixed;
+  top: 15px;
+  left: 10px;
+  padding: 4px 6px;
+  border: 1px solid #000;
+  background-color: #fa6464;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 700;
+  width: 100%;
+  max-width: 90px;
+  margin: 0;
+  margin-left: 10px;
+}
+.goBack:focus,
+.goBack:hover {
+  outline: none;
+  background-color: #fff;
+  transition: 0.4s linear;
+}

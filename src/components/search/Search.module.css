@@ -1,0 +1,52 @@
+.input {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 10px 1px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 60px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.08);
+  color: rgb(0, 0, 0);
+  transition: 0.6s linear;
+  margin-bottom: 20px;
+}
+.input:focus {
+  outline: none;
+  box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 60px rgba(0, 0, 0, 0), 0 1px rgba(255, 255, 255, 0.08);
+}
+.btnSearch {
+  padding: 6px 16px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.08);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  box-shadow: inset 0 2px 10px 1px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 60px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.08);
+  color: rgb(0, 0, 0);
+}
+.btnSearch:focus,
+.btnSearch:hover {
+  outline: none;
+  box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 60px rgba(0, 0, 0, 0), 0 1px rgba(255, 255, 255, 0.08);
+  transition: 0.4s linear;
+}
+.btnSearchActive {
+  color: #ffffff;
+}

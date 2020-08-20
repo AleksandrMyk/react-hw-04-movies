@@ -1,0 +1,49 @@
+.secBox {
+  width: 100%;
+
+  display: flex;
+}
+
+.image {
+  margin-right: 25px;
+}
+
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+}
+
+p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.Genres {
+  margin: 0;
+}
+
+.listGenres {
+  display: flex;
+}
+
+.nameGenres {
+  margin-right: 6px;
+}
+
+.titleBox {
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.tagline,
+.titleDet {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.titleDet {
+  margin-bottom: 5px;
+}

@@ -4,9 +4,13 @@ import QueryParams from '../../utils/QueryParams';
 import Search from '../../components/search/Search';
 import searchApi from '../../api/movieTrends';
 import style from './SearchPage.module.css';
+import Spinner from '../../utils/Spinner';
 
 export default class SearchPage extends Component {
-  state = { search: [] };
+  state = {
+    search: [],
+    loading: false,
+  };
 
   componentDidMount() {
     const { query } = QueryParams(this.props.location.search);
@@ -18,15 +22,22 @@ export default class SearchPage extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { query: prevQuery } = QueryParams(prevProps.location.search);
     const { query: nextQuery } = QueryParams(this.props.location.search);
+
     if (prevQuery !== nextQuery) {
       this.fetchSearch(nextQuery);
     }
   }
+
   fetchSearch = query => {
-    searchApi.fetchMovieSearch(query).then(search => {
-      console.log(search);
-      this.setState({ search: search.results });
-    });
+    this.setState({ loading: true });
+    searchApi
+      .fetchMovieSearch(query)
+      .then(search => {
+        console.log(search);
+        this.setState({ search: search.results });
+      })
+      .catch(error => this.setState({ error }))
+      .finally(() => this.setState({ loading: false }));
   };
   handleChangeQuery = query => {
     this.props.history.push({
@@ -36,13 +47,13 @@ export default class SearchPage extends Component {
   };
 
   render() {
-    const { search } = this.state;
-    const { match, location } = this.props;
+    const { search, loading } = this.state;
+    const { location } = this.props;
     return (
       <>
         <section>
           <Search onSubmit={this.handleChangeQuery} />
-
+          {loading && <Spinner />}
           <ul className={style.list}>
             {search.map(({ id, title, popularity, release_date }) => (
               <li key={id} className={style.items}>

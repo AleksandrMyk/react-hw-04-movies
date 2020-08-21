@@ -2,26 +2,34 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import trendsApi from '../../api/movieTrends';
 import style from './Trends.module.css';
+import Spinner from '../../utils/Spinner';
 
 export default class Trends extends Component {
   state = {
     trends: [],
+    loading: false,
   };
 
   componentDidMount() {
-    trendsApi.fetchMovieTrends().then(data => {
-      console.log(data);
-      this.setState({ trends: data.results });
-    });
+    this.setState({ loading: true });
+    trendsApi
+      .fetchMovieTrends()
+      .then(data => {
+        console.log(data);
+        this.setState({ trends: data.results });
+      })
+      .catch(error => this.setState({ error }))
+      .finally(() => this.setState({ loading: false }));
   }
 
   render() {
-    const { trends } = this.state;
+    const { trends, loading } = this.state;
 
     return (
       <>
         <section>
           <h1>Trending today</h1>
+          {loading && <Spinner />}
           <ul className={style.listTrends}>
             {trends.map(trend => (
               <li className={style.itemsTrends} key={trend.id}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import style from './App.module.css';
+
 import Trends from './pages/trends/Trends';
 import SearchPage from './pages/searchPage/SearchPage';
 import Header from './components/header/Header.js';

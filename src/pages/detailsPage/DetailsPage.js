@@ -5,15 +5,20 @@ import style from './DetailsPage.module.css';
 import Details from '../../components/details/Details';
 import Cast from '../cast/Cast';
 import Reviews from '../reviews/Reviews';
+import Spinner from '../../utils/Spinner';
 
 export default class DetailsPage extends Component {
   state = {
     movies: null,
+    loading: false,
   };
   componentDidMount() {
+    this.setState({ loading: true });
     aboutApi
       .fetchMovieAbout(this.props.match.params.id)
-      .then(movies => this.setState({ movies }));
+      .then(movies => this.setState({ movies }))
+      .catch(error => this.setState({ error }))
+      .finally(() => this.setState({ loading: false }));
   }
 
   handleGoBack = () => {
@@ -25,9 +30,10 @@ export default class DetailsPage extends Component {
   };
 
   render() {
-    const { movies } = this.state;
+    const { movies, loading } = this.state;
     return (
       <>
+        {loading && <Spinner />}
         {movies && <Details details={movies} />}
         <button className={style.goBack} onClick={this.handleGoBack}>
           Go back

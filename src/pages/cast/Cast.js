@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import actorsApi from '../../api/movieTrends';
+import Spinner from '../../utils/Spinner';
 import style from './Cast.module.css';
 
 export default class Cast extends Component {
   state = {
     actors: null,
+    loading: false,
   };
   componentDidMount() {
-    actorsApi.fetchMovieActors(this.props.match.params.id).then(actors => {
-      console.log(actors);
-      this.setState({ actors: actors.cast });
-    });
+    this.setState({ loading: true });
+    actorsApi
+      .fetchMovieActors(this.props.match.params.id)
+      .then(actors => {
+        console.log(actors);
+        this.setState({ actors: actors.cast });
+      })
+      .catch(error => this.setState({ error }))
+      .finally(() => this.setState({ loading: false }));
   }
   render() {
-    const { actors } = this.state;
+    const { actors, loading } = this.state;
     return (
       <section>
+        {loading && <Spinner />}
         {actors && (
           <ul className={style.list}>
             {actors.map(({ credit_id, name, character, profile_path }) => (

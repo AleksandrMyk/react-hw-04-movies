@@ -6,6 +6,7 @@ import Details from '../../components/details/Details';
 import Cast from '../cast/Cast';
 import Reviews from '../reviews/Reviews';
 import Spinner from '../../utils/Spinner';
+// import NotFound from '../../components/notfound/NotFound';
 
 export default class DetailsPage extends Component {
   state = {
@@ -16,7 +17,10 @@ export default class DetailsPage extends Component {
     this.setState({ loading: true });
     aboutApi
       .fetchMovieAbout(this.props.match.params.id)
-      .then(movies => this.setState({ movies }))
+      .then(movies => {
+        console.log(movies);
+        this.setState({ movies });
+      })
       .catch(error => this.setState({ error }))
       .finally(() => this.setState({ loading: false }));
   }
@@ -38,7 +42,6 @@ export default class DetailsPage extends Component {
         <button className={style.goBack} onClick={this.handleGoBack}>
           Go back
         </button>
-
         <section>
           <h2 className={style.addInfo}>Additional information</h2>
           <ul className={style.linkBox}>

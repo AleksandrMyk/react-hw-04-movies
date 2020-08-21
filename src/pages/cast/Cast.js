@@ -26,22 +26,30 @@ export default class Cast extends Component {
         {loading && <Spinner />}
         {actors && (
           <ul className={style.list}>
-            {actors.map(({ credit_id, name, character, profile_path }) => (
-              <li key={credit_id} className={style.item}>
-                <div className={style.box}>
-                  {profile_path && (
-                    <img
-                      src={`https://image.tmdb.org/t/p/w400${profile_path}`}
-                      alt={name}
-                      width="40px"
-                      className={style.image}
-                    />
-                  )}
-                  <p className={style.name}>{name}</p>
-                  <p className={style.char}>Character: {character}</p>
-                </div>
-              </li>
-            ))}
+            {(actors.length > 0 &&
+              actors.map(({ credit_id, name, character, profile_path }) => (
+                <li key={credit_id} className={style.item}>
+                  <div className={style.box}>
+                    {(profile_path && (
+                      <img
+                        src={`https://image.tmdb.org/t/p/w400${profile_path}`}
+                        alt={name}
+                        width="40px"
+                        className={style.image}
+                      />
+                    )) || (
+                      <img
+                        src={`https://wiki.bravofleet.com/images/4/43/No-avatar.png`}
+                        alt={name}
+                        width="40px"
+                        className={style.image}
+                      />
+                    )}
+                    <p className={style.name}>{name}</p>
+                    <p className={style.char}>Character: {character}</p>
+                  </div>
+                </li>
+              ))) || <p>There are no casts</p>}
           </ul>
         )}
       </section>

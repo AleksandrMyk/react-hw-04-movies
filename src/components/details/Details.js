@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Details.module.css';
 
+
 const Details = ({
   details: {
     title,

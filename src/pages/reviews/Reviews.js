@@ -25,12 +25,13 @@ export default class Reviews extends Component {
         {loading && <Spinner />}
         {rews && (
           <ul>
-            {rews.map(({ author, id, content }) => (
-              <li key={id}>
-                <p>Author: {author}</p>
-                <p>{content}</p>
-              </li>
-            ))}
+            {(rews.length > 0 &&
+              rews.map(({ author, id, content }) => (
+                <li key={id}>
+                  <p>Author: {author}</p>
+                  <p>{content}</p>
+                </li>
+              ))) || <p>There are no reviews yet.</p>}
           </ul>
         )}
       </section>

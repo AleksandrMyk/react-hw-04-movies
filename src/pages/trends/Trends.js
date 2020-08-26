@@ -48,7 +48,7 @@ export default class Trends extends Component {
                           }
                         : {
                             backgroundImage:
-                              'url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAUmka06uFKW8BxmZXi8uH_N1euTnUnTWmhQ&usqp=CAU)',
+                              'url(https://www.freeiconspng.com/img/23500)',
                           }
                     }
                   ></div>

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import style from './Details.module.css';
-
+import NotFound from '../../components/notfound/NotFound';
 
 const Details = ({
   details: {
@@ -34,11 +35,12 @@ const Details = ({
           <p className={style.Overview}>Overview: {overview}</p>
           <p className={style.Genres}>Genres:</p>
           <ul className={style.listGenres}>
-            {genres.map(movie => (
-              <li key={movie.id} className={style.itemGenres}>
-                <p className={style.nameGenres}>{movie.name}</p>
-              </li>
-            ))}
+            {(genres &&
+              genres.map(movie => (
+                <li key={movie.id} className={style.itemGenres}>
+                  <p className={style.nameGenres}>{movie.name}</p>
+                </li>
+              ))) || <Redirect to="/404" />}
           </ul>
         </div>
       </div>

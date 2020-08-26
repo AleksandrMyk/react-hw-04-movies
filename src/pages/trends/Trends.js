@@ -39,15 +39,25 @@ export default class Trends extends Component {
                     state: { from: this.props.location },
                   }}
                 >
+                  <div
+                    className={style.imgBox}
+                    style={
+                      trend.backdrop_path
+                        ? {
+                            backgroundImage: `url(https://image.tmdb.org/t/p/original${trend.backdrop_path})`,
+                          }
+                        : {
+                            backgroundImage:
+                              'url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAUmka06uFKW8BxmZXi8uH_N1euTnUnTWmhQ&usqp=CAU)',
+                          }
+                    }
+                  ></div>
                   <div className={style.boxTrends}>
                     <span className={style.nameTrends}>
                       {trend.title || trend.name}
                     </span>
                     <span className={style.spanTrends}>
                       Vote average: {trend.vote_average}
-                    </span>
-                    <span className={style.spanTrends}>
-                      Vote count: {trend.vote_count}
                     </span>
                   </div>
                 </Link>

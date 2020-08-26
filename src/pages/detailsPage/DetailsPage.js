@@ -6,7 +6,6 @@ import Details from '../../components/details/Details';
 import Cast from '../cast/Cast';
 import Reviews from '../reviews/Reviews';
 import Spinner from '../../utils/Spinner';
-// import NotFound from '../../components/notfound/NotFound';
 
 export default class DetailsPage extends Component {
   state = {

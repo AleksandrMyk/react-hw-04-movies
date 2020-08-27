@@ -55,7 +55,7 @@ export default class SearchPage extends Component {
           <Search onSubmit={this.handleChangeQuery} />
           {loading && <Spinner />}
           <ul className={style.list}>
-            {search.map(({ id, title, popularity, release_date }) => (
+            {search.map(({ id, title, vote_average, backdrop_path }) => (
               <li key={id} className={style.items}>
                 <div className={style.box}>
                   <Link
@@ -65,9 +65,21 @@ export default class SearchPage extends Component {
                     }}
                     className={style.link}
                   >
+                    <div
+                      className={style.imgBox}
+                      style={
+                        backdrop_path
+                          ? {
+                              backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
+                            }
+                          : {
+                              backgroundImage:
+                                'url(https://www.freeiconspng.com/img/23500)',
+                            }
+                      }
+                    ></div>
                     <p className={style.title}>{title} </p>
-                    <p className={style.pop}>Popularity: {popularity}%</p>
-                    <p className={style.date}>Release_date: {release_date} </p>
+                    <p className={style.pop}>Vote average: {vote_average}</p>
                   </Link>
                 </div>
               </li>

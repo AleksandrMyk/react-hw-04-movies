@@ -41,7 +41,7 @@ export default class DetailsPage extends Component {
         <button className={style.goBack} onClick={this.handleGoBack}>
           Go back
         </button>
-        <section>
+        <section className={style.secBox}>
           <h2 className={style.addInfo}>Additional information</h2>
           <ul className={style.linkBox}>
             <li className={style.linkItems}>

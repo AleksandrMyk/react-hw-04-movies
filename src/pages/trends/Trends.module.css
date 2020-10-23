@@ -10,7 +10,6 @@ h1 {
 
 .itemsTrends {
   margin: 0 auto;
-  width: 300px;
   display: flex;
   justify-content: center;
   border: 1px solid black;
@@ -38,8 +37,44 @@ h1 {
 .imgBox {
   background-size: cover;
   background-repeat: no-repeat;
-  width: 250px;
+  width: 200px;
   height: 80px;
   margin: 10px auto;
   box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+}
+
+.secBox {
+  width: 95%;
+  margin: 0 auto;
+}
+
+@media (max-width: 599px) {
+  .itemsTrends {
+    width: 70%;
+  }
+}
+@media (min-width: 600px) and (max-width: 767px) {
+  .itemsTrends {
+    width: 30%;
+  }
+  .imgBox {
+    width: 150px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .itemsTrends {
+    width: 30%;
+  }
+  .imgBox {
+    width: 200px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .itemsTrends {
+    width: 22%;
+  }
+  .imgBox {
+    width: 250px;
+  }
 }

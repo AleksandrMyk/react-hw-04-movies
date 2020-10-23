@@ -27,7 +27,7 @@ export default class Trends extends Component {
 
     return (
       <>
-        <section>
+        <section className={style.secBox}>
           <h1>Trending today</h1>
           {loading && <Spinner />}
           <ul className={style.listTrends}>

@@ -15,14 +15,13 @@ const Details = ({
   },
 }) => {
   return (
-    <section className={style.section}>
+    <section>
       <div className={style.secBox}>
         <img
           src={`https://image.tmdb.org/t/p/w300${poster_path}`}
           alt={title}
           className={style.image}
         />
-
         <div className={style.infoBox}>
           <div className={style.titleBox}>
             <h1 className={style.titleDet}>{title}</h1>
@@ -31,7 +30,6 @@ const Details = ({
           <p className={style.score}>User Score: {popularity}%</p>
           <p className={style.Release}>Release date: {release_date}</p>
           <p className={style.runtime}>runtime: {runtime} minutes</p>
-          <p className={style.Overview}>Overview: {overview}</p>
           <p className={style.Genres}>Genres:</p>
           <ul className={style.listGenres}>
             {(genres &&
@@ -41,6 +39,9 @@ const Details = ({
                 </li>
               ))) || <Redirect to="/" />}
           </ul>
+        </div>
+        <div className={style.moreInfoBox}>
+          <p className={style.Overview}>Overview: {overview}</p>
         </div>
       </div>
     </section>

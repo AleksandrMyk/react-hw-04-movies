@@ -1,18 +1,13 @@
 .secBox {
-  width: 100%;
-
+  width: 95%;
   display: flex;
+  margin: 0 auto;
 }
-
-.image {
-  margin-right: 25px;
-}
-
 
 .infoBox {
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 100%;
 }
 
 p {
@@ -46,4 +41,33 @@ p {
 
 .titleDet {
   margin-bottom: 5px;
+}
+
+@media (max-width: 599px) {
+  .secBox {
+    flex-direction: column;
+  }
+  .image {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 170px;
+    height: 250px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1920px) {
+  .image {
+    width: 250px;
+    height: 340px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  .infoBox {
+    flex-shrink: 2;
+  }
+  .secBox {
+    flex-wrap: wrap;
+  }
+  .infoBox {
+    width: 50%;
+  }
 }
